@@ -1,0 +1,360 @@
+/* Apply general styles */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+:root {
+  --background-color: #ffffff;
+  --text-color: #000000;
+  --highlight-color: #006400;
+  --form-bg: #f0f0f0;
+  --input-border: #ccc;
+  --button-bg: #007bff;
+  --button-text: #ffffff;
+  --button-bg-hover: #0056b3;
+  --link-color: #1a73e8;
+}
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+h3 {
+  color: #45a049;
+}
+
+.form_container {
+  max-width: 400px;
+  margin: 100px auto;
+  padding: 20px;
+  background-color: #fff;
+  /* Set background color for form container */
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  /* Add shadow effect */
+}
+
+.form_container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 8px;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 100%;
+  /* Set input width to 100% */
+  box-sizing: border-box;
+  /* Include padding and border in the width calculation */
+}
+
+button[type="submit"] {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  /* Set button background color */
+  color: #fff;
+  /* Set button text color */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+  background-color: #45a049;
+  /* Darken button color on hover */
+}
+
+span {
+  margin-top: 10px;
+  text-align: center;
+}
+
+span a {
+  color: #4caf50;
+  /* Set link color */
+  text-decoration: none;
+}
+
+.home_page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+[data-theme="dark"] {
+  --background-color: #121212;
+  --text-color: #ffffff;
+  --highlight-color: #b1e3b3;
+  --form-bg: #1e1e1e;
+  --input-border: #333;
+  --button-bg: #4caf50;
+  --button-text: #ffffff;
+  --button-bg-hover: #45a049;
+  --link-color: #0b290c;
+  
+  #home,#request,#about,#contact,.card,.hist,.input-group{
+    background-color: #000000;
+  }
+ 
+  #lab,.input-field{
+     background-color:#bfb5b5;
+     
+  }
+  .head{
+     color:#352f2f;
+     background-color: #5ecc93;
+     border-radius: 5px;
+     text-align: center;
+  }
+  .bg-grey{
+      background-color:#c4b2b2;
+  }
+}
+
+/* the commented navbar styling is REDUNDANT at the moment */
+
+/* .topnav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  overflow: hidden;
+  background-color: transparent;
+  transition: background-color 0.3s;
+  text-align: right; 
+}
+
+.navbar-left {
+  float: left; 
+  padding: 14px 16px; 
+}
+
+.website-name {
+  color: #4caf50; 
+  font-size: 18px; 
+  font-weight: bold; 
+  margin: 0; 
+}
+
+.navbar-right {
+  float: right; 
+}
+
+.topnav a {
+  color: #333; 
+  text-decoration: none;
+  font-size: 17px;
+  padding: 14px 16px;
+  display: inline-block; 
+  transition: color 0.3s; 
+}
+
+.topnav a:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  color: #000; 
+}
+
+.topnav a.active {
+  background-color: #4caf50;
+  color: white;
+} */
+
+
+.navbar-brand {
+  color: #4caf50;
+  /* Green color */
+}
+
+.custom-toggler .navbar-toggler-icon {
+  background-color: rgb(255, 255, 255);
+}
+
+/* Style the main content sections */
+#home,
+#request,
+#about,
+#contact {
+  padding: 20px;
+  margin-top: 60px;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+}
+
+/* Center align text in sections */
+.w3-center {
+  text-align: center;
+}
+
+/* Add some spacing between section headings and paragraphs */
+.w3-large {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.home-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.text-container {
+  flex: 1;
+  padding-right: 20px;
+  /* Adjust spacing between text and image */
+}
+
+.image-container {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  padding-left: 20px;
+  /* Adjust spacing between text and image */
+}
+
+.image-container img {
+  max-width: 100%;
+  /* Ensure image does not exceed container width */
+  height: auto;
+  /* Maintain aspect ratio */
+}
+
+@media (max-width: 768px) {
+  .home-container {
+    flex-direction: column;
+    /* Stack elements vertically on smaller screens */
+  }
+
+  .text-container,
+  .image-container {
+    width: 100%;
+    padding: 0;
+    /* Remove padding on smaller screens */
+  }
+}
+
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap-reverse;
+  /* Reverse flex-wrap to change the order of items */
+}
+
+.image-container {
+  flex: 1;
+  padding-right: 20px;
+  /* Adjust spacing between image and text */
+}
+
+.text-container {
+  flex: 1;
+  padding-left: 20px;
+  /* Adjust spacing between image and text */
+}
+
+.image-container img {
+  max-width: 100%;
+  /* Ensure image does not exceed container width */
+  height: auto;
+  /* Maintain aspect ratio */
+}
+
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    /* Stack elements vertically on smaller screens */
+  }
+
+  .text-container,
+  .image-container {
+    width: 100%;
+    padding: 0;
+    /* Remove padding on smaller screens */
+  }
+}
+
+.contact-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  /* Flex-wrap to handle wrapping on smaller screens */
+}
+
+.text-container {
+  flex: 1;
+  padding-right: 20px;
+  /* Adjust spacing between text and image */
+}
+
+.image-container {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  padding-left: 20px;
+  /* Adjust spacing between text and image */
+}
+
+.image-container img {
+  max-width: 100%;
+  /* Ensure image does not exceed container width */
+  height: auto;
+  /* Maintain aspect ratio */
+}
+
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column;
+    /* Stack elements vertically on smaller screens */
+  }
+
+  .text-container,
+  .image-container {
+    width: 100%;
+    padding: 0;
+    /* Remove padding on smaller screens */
+  }
+}
+
+.schedule-button {
+  display: block;
+  margin: 0 auto;
+  /* Center the button */
+  padding: 10px 20px;
+  background-color: #4caf50;
+  /* Green background color */
+  color: #fff;
+  /* White text color */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  /* Add transition for smooth hover effect */
+  text-decoration: none;
+  /* Remove underline */
+}
+
+.schedule-button:hover {
+  background-color: #45a049;
+  /* Darker green background color on hover */
+}
+
+/* Style the footer */
+footer {
+  background-color: #333;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 20px;
+}
