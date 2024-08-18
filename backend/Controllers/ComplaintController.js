@@ -93,21 +93,23 @@ const allComplaints = asyncHandler(async (req, res) => {
 const updateStatus = asyncHandler(async (req, res) => {
     try {
         const bearerHeader = req.headers.authorization; 
-        const reqId = req.headers._id;
-        const token = bearerHeader.split(' ')[1];
-        const decoded = decodeToken(token);
-        const caller = decoded.id;
+        // const reqId = req.headers._id;
+        // const token = bearerHeader.split(' ')[1];
+        // const decoded = decodeToken(token);
+        // const caller = decoded.id;
 
-        const isAdmin = await Admin.findOne({ _id: caller })
-        if(!isAdmin) {
-            res.status(403).json({
-                success: false,
-                message: "403 Forbidden! Access Denied!"
-            })
-        }
-
-        const complaints = await Complaint.findOneAndUpdate({ _id: reqId }, { isResolved: true }, { new: true });
+        // const isAdmin = await Admin.findOne({ req._id})
+        // if(!isAdmin) {
+        //     res.status(403).json({
+        //         success: false,
+        //         message: "403 Forbidden! Access Denied!"
+        //     })
+        // }
+        const { _id } = req.body
+        const complaints = await Complaint.findOneAndUpdate({ _id}, { isResolved: true }, { new: true });
+        
         res.status(200).json(complaints); 
+        console.log(complaints);
     } catch(err) {
         res.status(400).json({ message: 'Error updating data. Please try again later.' });
         console.log("Error in updation: "+ res);

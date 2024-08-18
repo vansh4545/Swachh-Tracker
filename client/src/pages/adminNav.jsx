@@ -13,8 +13,9 @@ const adminNavbar = ({ onLogout }) => {
                 <Navbar.Brand>
                     SwachhTracker
                 </Navbar.Brand>
-                <ThemeToggle/>
+                
                 <Nav className="ms-auto">
+                <ThemeToggle/>
                     <Nav.Link href="/login" onClick={onLogout}>Logout</Nav.Link> {/* Call the onLogout function */}
                 </Nav>
 

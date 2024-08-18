@@ -24,7 +24,11 @@ const complaintSchema = new mongoose.Schema({
         type: Date,
         required: false,
     }
-   
+   , 
+   isResolved: {
+    type: Boolean,
+    default: false
+}
    
     // isResolved: {
     //     type: Boolean,
