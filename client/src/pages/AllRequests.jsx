@@ -20,7 +20,7 @@ const AllRequests = () => {
         setLoading(true);
         try {
             const token = cookies.token;
-            const res = await axios.patch('http://localhost:8000/request/update', 
+            const res = await axios.patch('https://swachh-backend.onrender.com/request/update', 
                 { _id: requestId }, 
                 { headers: { Authorization: `Bearer ${token}` } }
             );
@@ -46,7 +46,7 @@ const AllRequests = () => {
         setLoading(true);
         try {
             const token = cookies.token;
-            const res = await axios.get('http://localhost:8000/request/all', {
+            const res = await axios.get('https://swachh-backend.onrender.com/request/all', {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }

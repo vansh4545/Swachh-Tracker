@@ -18,7 +18,7 @@ const ComplaintHistory = () => {
 
     const fetchComplaints = async () => {
         
-        const res = await axios.get(`http://localhost:8000/request/history`, {
+        const res = await axios.get(`https://swachh-backend.onrender.com/request/history`, {
             headers: {
                 Authorization: `Bearer `
             }
