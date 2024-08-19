@@ -1,42 +1,17 @@
-import React, { useEffect, useState,useContext } from "react";
+import React,{useState} from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { DataContext } from "../context/DataProvider";
-import { useCookies } from 'react-cookie';
-import { ToastContainer, toast } from "react-toastify";
-const handleAdminLogin = () => {};
 
-const AdminLogin = ({isAdminUser}) => {
+
+import { ToastContainer, toast } from "react-toastify";
+const AdminLogin = ({isAdminUser,isUserAuthenticated}) => {
   const navigate = useNavigate();
- 
- 
-  
   const [inputValue, setInputValue] = useState({
     email: "",
     password: "",
   });
   const { email, password } = inputValue;
-  const {setAccount,account} = useContext(DataContext);
-  
-  // useEffect(() => {
-  //   const verifyCookie = async () => {
-  //     if (!cookies.token) {
-  //       navigate("/login");
-  //     }
-  //     const { data } = await axios.post(
-  //       "http://localhost:4000",
-  //       {},
-  //       { withCredentials: true }
-  //     );
-  //     // const { status, isAdmin } = data;
-  //     // setUsername(user);
-  //     return data.status
-  //       ? navigate('/')
-  //       : (removeCookie("token"), navigate("/login"));
-  //   };
-  //   verifyCookie();
-  // }, [])
-
+ 
   const handleOnChange = (e) => {
     const { name, value } = e.target;
     setInputValue({
@@ -59,13 +34,9 @@ const AdminLogin = ({isAdminUser}) => {
         }
         
       );
-      
-      sessionStorage.setItem('accesstoken', `Bearer ${data.accesstoken}`);
-      //console.log(data.user);
-      // setAccount({email:data.user.email,password:data.user.password});
-       //console.log(data.user.email);
-      
+       sessionStorage.setItem('accesstoken', `Bearer ${data.accesstoken}`);
       isAdminUser(true);
+      isUserAuthenticated(true);
       const { user,accesstoken,success, message } = data;
       if (success) {
         
@@ -73,7 +44,7 @@ const AdminLogin = ({isAdminUser}) => {
         navigate("/");
       } else {
         alert(message)
-        //handleError(message);
+        
       }
     } catch (error) {
       console.log(error);

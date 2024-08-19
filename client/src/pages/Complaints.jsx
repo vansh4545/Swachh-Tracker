@@ -1,23 +1,25 @@
 import './complaints.css';
-import React, { useContext, useState} from 'react';
-import { useCookies } from 'react-cookie';
+import React, {useState} from 'react';
+
 
 import axios from 'axios';
 import CustomNavbar from './Navbar';
-import { useParams } from 'react-router-dom';
-import { DataContext } from '../context/DataProvider';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 export const getAccessToken = ()=>{
     return sessionStorage.getItem('accesstoken');
 
 }
 
 const Complaints = () => {
-    //const [cookies] = useCookies(['token']);
-    const {account} = useContext(DataContext);
-    console.log(account.email);
+    
+   
+    const navigate = useNavigate();
+    
+    const userInfo = useSelector((state) => state.user.userInfo);
     const [inputValue, setInputValue] = useState({
         
-        email:account.email,
+        email:userInfo.email,
         wasteType: "",
         description: "",
         pickupTime: "",
@@ -37,22 +39,18 @@ const Complaints = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            // const token = cookies.token;
+           
              console.log("hello");
             const { data } = await axios.post('http://localhost:8000/request/',
                 {
                     ...inputValue
                 },
-                // {
-                //     headers: {
-                //         "Authorization": `${getAccessToken()}`
-                //     }
-                // },
                
             );
-            console.log("end");
+           
             const { success, message } = data;
             if (success) {
+                navigate('/request/history');
                 alert(message);
             } else {
                 alert("error in filing complaint");

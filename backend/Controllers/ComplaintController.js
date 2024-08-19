@@ -3,7 +3,7 @@ import Complaint from '../Models/complaintModel.js';
 import decodeToken from '../util/decodeToken.js';
 import 'dotenv/config';
 import Complaints from '../Models/complaintModel.js';
-import Admin from '../Models/adminModel.js';
+
 
 
 // @desc        File a new complaint
@@ -12,12 +12,6 @@ import Admin from '../Models/adminModel.js';
 const raiseComplaint = asyncHandler(async (req, res) => {
     try {
         const { email,wasteType, description,  pickupTime,pickupDate } = req.body;
-        // const bearerHeader = req.headers.authorization; 
-        // const token = bearerHeader.split(' ')[2];
-        
-        // const decoded = decodeToken(token);
-        // const filedBy = decoded.id;
-
         if(wasteType && description && pickupTime) {
             const newComplaint = new Complaint({
                 email,
@@ -28,7 +22,7 @@ const raiseComplaint = asyncHandler(async (req, res) => {
                 
                 
             });
-            //console.log(token);
+            
             console.log("problem");
             const filedComplaint = await newComplaint.save();
            
@@ -66,18 +60,6 @@ const raiseComplaint = asyncHandler(async (req, res) => {
 // @access      Private/Admin
 const allComplaints = asyncHandler(async (req, res) => {
     try {
-        // const bearerHeader = req.headers.authorization; 
-        // const token = bearerHeader.split(' ')[1];
-        // const decoded = decodeToken(token);
-        // const caller = decoded.id;
-
-        // const isAdmin = await Admin.findOne({ _id: caller })
-        // if(!isAdmin) {
-        //     res.status(403).json({
-        //         success: false,
-        //         message: "403 Forbidden! Access Denied!"
-        //     })
-        // }
 
         const complaints = await Complaint.find({ });
         res.status(200).json(complaints); // gives out an array of objects, each object contains a single complaint
@@ -93,18 +75,6 @@ const allComplaints = asyncHandler(async (req, res) => {
 const updateStatus = asyncHandler(async (req, res) => {
     try {
         const bearerHeader = req.headers.authorization; 
-        // const reqId = req.headers._id;
-        // const token = bearerHeader.split(' ')[1];
-        // const decoded = decodeToken(token);
-        // const caller = decoded.id;
-
-        // const isAdmin = await Admin.findOne({ req._id})
-        // if(!isAdmin) {
-        //     res.status(403).json({
-        //         success: false,
-        //         message: "403 Forbidden! Access Denied!"
-        //     })
-        // }
         const { _id } = req.body
         const complaints = await Complaint.findOneAndUpdate({ _id}, { isResolved: true }, { new: true });
         

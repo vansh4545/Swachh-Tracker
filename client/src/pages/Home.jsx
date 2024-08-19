@@ -1,45 +1,11 @@
-import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useCookies } from "react-cookie";
-import axios from "axios";
 import CustomNavbar from './Navbar';
 import AllRequests from './AllRequests';
-
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import { ToastContainer, toast } from "react-toastify";
-
 const Home = ({isAdmin}) => {
   const navigate = useNavigate();
-  const [cookies, removeCookie] = useCookies([]);
-  
-  // useEffect(() => {
-  //   const verifyCookie = async () => {
-    
-  //     const { data } = await axios.post(
-  //       "http://localhost:8000",
-  //       {},
-        
-  //     );
-  //     // const { status, isAdmin } = data;
-  //     // setUsername(user);
-  //     setIsAdmin(data.isAdmin);
-  //     return data.status
-  //       ? console.log("hey")
-  //       : (removeCookie("token"), navigate("/login"));
-  //   };
-  //   verifyCookie();
-  // }, []);
-  // useEffect(()=> {
-  //   if (isAdmin) {
-  //     navigate("/request/all");
-  //   }
-  // }, [isAdmin])
   const Logout = () => {
-    
+    isAdmin = false;
     navigate("/login");
   };
   return (

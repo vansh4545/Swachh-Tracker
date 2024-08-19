@@ -9,7 +9,6 @@ router.post('/',userVerification);
 
 router.post('/signup', Signup)
 router.post('/login', Login)
-// router.post('/adminlogin',Adminlogin);
 router.post('/adminsignup', AdminSignup)
 
 export default router;

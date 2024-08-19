@@ -1,14 +1,14 @@
 import React, { useEffect, useState,useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { DataContext } from "../context/DataProvider";
-import { useCookies } from 'react-cookie';
+import { useDispatch } from 'react-redux';
+import { login } from '../redux/userSlice';
 import { ToastContainer, toast } from "react-toastify";
-const handleAdminLogin = () => {};
 
-const Login = () => {
+
+const Login = ({isUserAuthenticated}) => {
   const navigate = useNavigate();
- 
+  const dispatch = useDispatch();
  
   
   const [inputValue, setInputValue] = useState({
@@ -16,27 +16,9 @@ const Login = () => {
     password: "",
   });
   const { email, password } = inputValue;
-  const {setAccount,account} = useContext(DataContext);
+ 
   
-  // useEffect(() => {
-  //   const verifyCookie = async () => {
-  //     if (!cookies.token) {
-  //       navigate("/login");
-  //     }
-  //     const { data } = await axios.post(
-  //       "http://localhost:4000",
-  //       {},
-  //       { withCredentials: true }
-  //     );
-  //     // const { status, isAdmin } = data;
-  //     // setUsername(user);
-  //     return data.status
-  //       ? navigate('/')
-  //       : (removeCookie("token"), navigate("/login"));
-  //   };
-  //   verifyCookie();
-  // }, [])
-
+ 
   const handleOnChange = (e) => {
     const { name, value } = e.target;
     setInputValue({
@@ -59,14 +41,13 @@ const Login = () => {
         }
         
       );
-      setAccount({em:"vansh",pd:"dskbns"});
+      
       sessionStorage.setItem('accesstoken', `Bearer ${data.accesstoken}`);
-      //console.log(data.user);
-      // setAccount({email:data.user.email,password:data.user.password});
-       //console.log(data.user.email);
-       console.log(account);
-      //isUserAuthenticated(true);
+      
+      isUserAuthenticated(true);
       const { user,accesstoken,success, message } = data;
+      
+      dispatch(login(user));
       if (success) {
         
         alert(message)
@@ -114,7 +95,7 @@ const Login = () => {
           Already have an account? <Link to={"/signup"}>Signup</Link>
         </span>
       </form>
-      <Link to={"/adminlogin"}>Admin Login</Link>
+      <Link className="lnk" to={"/adminlogin"}>Admin Login</Link>
       <ToastContainer />
     </div>
   );

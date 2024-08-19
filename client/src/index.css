@@ -190,7 +190,18 @@ span a {
   background-color: #f2f2f2;
   border-radius: 5px;
 }
-
+.lnk{
+    color:#ffffff;
+    text-decoration: none;
+    text-align: center;
+    background-color: #45a049;
+    border-radius: 5px;
+    margin-left: 130px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
 /* Center align text in sections */
 .w3-center {
   text-align: center;

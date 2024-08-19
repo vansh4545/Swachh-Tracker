@@ -5,7 +5,7 @@ import {
     complaintHistory,
     updateStatus
 } from '../Controllers/ComplaintController.js';
-import { userVerification } from '../Middlewares/AuthMiddleware.js';
+
 
 const router = express.Router();
 

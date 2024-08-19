@@ -1,11 +1,8 @@
-// adminNavbar.jsx
-
 import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import ThemeToggle from '../themetoggle';
-
 const adminNavbar = ({ onLogout }) => {
     return (
         <Navbar collapseOnSelect expand="lg" className="bg-grey">
@@ -23,5 +20,4 @@ const adminNavbar = ({ onLogout }) => {
         </Navbar>
     );
 }
-
 export default adminNavbar;

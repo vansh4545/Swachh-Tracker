@@ -1,17 +1,17 @@
 import './complaintHistory.css';
 import axios from 'axios';
-import React, { useEffect, useState,useContext} from 'react';
-import { useCookies } from 'react-cookie';
+import React, { useEffect, useState} from 'react';
 import CustomNavbar from './Navbar';
-import {DataContext} from '../context/DataProvider';
+import { useSelector } from 'react-redux';
 
 const ComplaintHistory = () => {
      console.log('complaintHistory');
     const [history, setHistory] = useState([]);
     const [zeroComplaints, setZeroComplaints] = useState(false);
+    const userInfo = useSelector((state) => state.user.userInfo);
     
-    // const {account} = useContext(DataContext);
-    // console.log(account);
+    console.log(userInfo);
+    
     useEffect(() => {
         fetchComplaints();
     },[]);
@@ -56,8 +56,8 @@ const ComplaintHistory = () => {
                             </thead>
 
                             <tbody>
-                                {!zeroComplaints && history.map((val, index) => {
-                                    //console.log(val.description);
+                                {!zeroComplaints && history.filter((val) => val.email === userInfo.email).map((val, index) => {
+                                    console.log(val);
                                     return (
                                         (<tr className='table-item' key={index}>
                                             <td className='col-xs-6'>{val.description.trimEnd()}</td>

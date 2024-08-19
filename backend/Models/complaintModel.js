@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 const complaintSchema = new mongoose.Schema({
     email:{
         type:String,
-        //required: true,
+        required: true,
     },
     wasteType: { 
         type: String,
