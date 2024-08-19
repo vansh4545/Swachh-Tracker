@@ -5,9 +5,9 @@ import Home from "./pages/Home";
 import Complaints from "./pages/Complaints";
 import ComplaintHistory from "./pages/ComplaintHistory.jsx";
 import AllRequests from "./pages/AllRequests.jsx";
-
-const PrivateRoute =({isAuthenticated,...props})=>{
-  return isAuthenticated ?
+import { useSelector } from 'react-redux';
+const PrivateRoute =({isal,...props})=>{
+  return isal ?
   <>
  
   <Outlet/>
@@ -22,6 +22,8 @@ function App() {
   //console.log(account);
   const [isAuthenticated,isUserAuthenticated] = useState(false);
   const [isAdmin,isAdminUser] = useState(false);
+  const userInfo = useSelector((state) => state.user.userInfo);
+  const [isal] = useState(userInfo.email);
   return (
     
       <BrowserRouter>
@@ -31,7 +33,7 @@ function App() {
       <Route path="/login" element={<Login isUserAuthenticated={isUserAuthenticated}/>} />
       <Route path='/adminlogin' element={<AdminLogin  isAdminUser={isAdminUser} isUserAuthenticated={isUserAuthenticated}/>} />
         
-      <Route path='/' element={<PrivateRoute isAuthenticated={isAuthenticated}/>} >
+      <Route path='/' element={<PrivateRoute isal={isal}/>} >
           <Route path='/' element={<Home isAdmin= {isAdmin}/>}/>
         </Route>
 
