@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   userInfo: null, // This will store the user data
-  
+  isAuthenticated: false,
 };
 
 const userSlice = createSlice({
@@ -12,7 +12,8 @@ const userSlice = createSlice({
   reducers: {
     login: (state, action) => {
       
-      state.userInfo = action.payload;
+        state.userInfo = action.payload; // action.payload should contain the user data
+        state.isAuthenticated = true;
      
     },
     

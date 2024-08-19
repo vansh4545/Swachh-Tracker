@@ -6,7 +6,7 @@ import { login } from '../redux/userSlice';
 import { ToastContainer, toast } from "react-toastify";
 
 
-const Login = ({isUserAuthenticated}) => {
+const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
  
@@ -44,7 +44,7 @@ const Login = ({isUserAuthenticated}) => {
       
       sessionStorage.setItem('accesstoken', `Bearer ${data.accesstoken}`);
       
-      isUserAuthenticated(true);
+     
       const { user,accesstoken,success, message } = data;
       
       dispatch(login(user));

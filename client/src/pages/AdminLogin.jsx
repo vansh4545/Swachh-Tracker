@@ -4,7 +4,7 @@ import axios from "axios";
 
 
 import { ToastContainer, toast } from "react-toastify";
-const AdminLogin = ({isAdminUser,isUserAuthenticated}) => {
+const AdminLogin = () => {
   const navigate = useNavigate();
   const [inputValue, setInputValue] = useState({
     email: "",
@@ -35,8 +35,7 @@ const AdminLogin = ({isAdminUser,isUserAuthenticated}) => {
         
       );
        sessionStorage.setItem('accesstoken', `Bearer ${data.accesstoken}`);
-      isAdminUser(true);
-      isUserAuthenticated(true);
+      
       const { user,accesstoken,success, message } = data;
       if (success) {
         
