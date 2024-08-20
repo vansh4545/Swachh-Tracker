@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 import ThemeToggle from '../themetoggle'; // Import custom theme toggle component
 
 const CustomNavbar = ({ onLogout }) => {
+    const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
     return (
         <Navbar collapseOnSelect expand="lg" className="bg-grey">
             <Container>
@@ -38,7 +39,14 @@ const CustomNavbar = ({ onLogout }) => {
                     <Nav>
                     <ThemeToggle/>
                         <Nav.Link href="/#contact">Contact Us</Nav.Link>
-                        <Nav.Link href="/login" onClick={onLogout}>Logout</Nav.Link> {/* Call the onLogout function */}
+                        {userInfo ? (
+        <>
+          
+          <Nav.Link href="/login" onClick={onLogout}>Logout</Nav.Link>
+        </>
+      ) : (
+        <Nav.Link href="/login">Login</Nav.Link>
+      )}
                     </Nav>
                 </Navbar.Collapse>
             </Container>
