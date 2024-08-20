@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { ToastContainer, toast } from "react-toastify";
 
 
-const Login = () => {
+const Login = ({isUserAuthenticated}) => {
   const navigate = useNavigate();
  
  
@@ -41,9 +41,9 @@ const Login = () => {
         }
         
       );
+      
       const { user,accesstoken,success, message } = data;
-      sessionStorage.setItem('userInfo', JSON.stringify(user));
-      sessionStorage.setItem('isAuthenticated', true);
+     
      
      
       // .log(user);
@@ -51,6 +51,8 @@ const Login = () => {
       
       // console.log(userInfo);
       if (success) {
+        sessionStorage.setItem('userInfo', JSON.stringify(user));
+        isUserAuthenticated(true);
         
         alert(message)
         navigate("/");

@@ -9,8 +9,7 @@ import AllRequests from "./pages/AllRequests.jsx";
 const PrivateRoute =({isAuthenticated,...props})=>{
   return isAuthenticated ?
   <>
- 
-  <Outlet/>
+   <Outlet/>
   </>
    : <Navigate replace to ='/login'/>
   
@@ -23,18 +22,18 @@ function App() {
   //const [isAuthenticated,isUserAuthenticated] = useState(false);
   const [isAdmin,isAdminUser] = useState(false);
   
-  const isAuthenticated = sessionStorage.getItem('isAuthenticated') === 'true';
+  const [isAuthenticated, isUserAuthenticated] = useState(false);
 
   // useEffect(() => {
-  //   const handleBeforeUnload = () => {
-  //     // Clear session storage when the page is refreshed or updated
-  //     //sessionStorage.clear();
+  //   // Sync authentication state with sessionStorage
+  //   const handleStorageChange = () => {
+  //     setIsAuthenticated(sessionStorage.getItem('isAuthenticated') === 'true');
   //   };
 
-  //   window.addEventListener('beforeunload', handleBeforeUnload);
+  //   window.addEventListener('storage', handleStorageChange);
 
   //   return () => {
-  //     window.removeEventListener('beforeunload', handleBeforeUnload);
+      
   //   };
   // }, []);
   return (
@@ -43,7 +42,7 @@ function App() {
         
     <div className="App">
       <Routes>
-      <Route path="/login" element={<Login/>} />
+      <Route path="/login" element={<Login isUserAuthenticated={isUserAuthenticated}/>} />
       <Route path='/adminlogin' element={<AdminLogin  isAdminUser={isAdminUser} />} />
         
       <Route path='/' element={<PrivateRoute isAuthenticated={isAuthenticated}/>} >
