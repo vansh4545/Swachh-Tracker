@@ -25,18 +25,18 @@ function App() {
   
   const isAuthenticated = sessionStorage.getItem('isAuthenticated') === 'true';
 
-  useEffect(() => {
-    const handleBeforeUnload = () => {
-      // Clear session storage when the page is refreshed or updated
-      //sessionStorage.clear();
-    };
+  // useEffect(() => {
+  //   const handleBeforeUnload = () => {
+  //     // Clear session storage when the page is refreshed or updated
+  //     //sessionStorage.clear();
+  //   };
 
-    window.addEventListener('beforeunload', handleBeforeUnload);
+  //   window.addEventListener('beforeunload', handleBeforeUnload);
 
-    return () => {
-      window.removeEventListener('beforeunload', handleBeforeUnload);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener('beforeunload', handleBeforeUnload);
+  //   };
+  // }, []);
   return (
     
       <BrowserRouter>
