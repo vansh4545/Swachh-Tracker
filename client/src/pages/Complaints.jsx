@@ -15,7 +15,7 @@ const Complaints = () => {
     
    
     const navigate = useNavigate();
-    const  userInfo = sessionStorage.getItem('userInfo');
+    const  userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
    
     const [inputValue, setInputValue] = useState({
         
