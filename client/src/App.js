@@ -45,9 +45,9 @@ function App() {
       <Route path="/login" element={<Login isUserAuthenticated={isUserAuthenticated}/>} />
       <Route path='/adminlogin' element={<AdminLogin  isAdminUser={isAdminUser} />} />
         
-      <Route path='/' element={<PrivateRoute isAuthenticated={isAuthenticated}/>} >
+      
           <Route path='/' element={<Home isAdmin= {isAdmin}/>}/>
-        </Route>
+       
 
        
 
