@@ -1,14 +1,14 @@
-import React, { useEffect, useState,useContext } from "react";
+import React, {useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useDispatch } from 'react-redux';
-import { login } from '../redux/userSlice';
+
 import { ToastContainer, toast } from "react-toastify";
 
 
 const Login = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+ 
  
   
   const [inputValue, setInputValue] = useState({
@@ -41,13 +41,15 @@ const Login = () => {
         }
         
       );
-      
-      sessionStorage.setItem('accesstoken', `Bearer ${data.accesstoken}`);
-      
-     
       const { user,accesstoken,success, message } = data;
+      sessionStorage.setItem('userInfo', JSON.stringify(user));
+      sessionStorage.setItem('isAuthenticated', true);
+     
+     
+      // .log(user);
+      //  dispatch(login(user));
       
-      dispatch(login(user));
+      // console.log(userInfo);
       if (success) {
         
         alert(message)

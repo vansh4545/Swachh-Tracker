@@ -2,16 +2,17 @@ import './complaintHistory.css';
 import axios from 'axios';
 import React, { useEffect, useState} from 'react';
 import CustomNavbar from './Navbar';
-import { useSelector } from 'react-redux';
+
 
 const ComplaintHistory = () => {
      console.log('complaintHistory');
     const [history, setHistory] = useState([]);
     const [zeroComplaints, setZeroComplaints] = useState(false);
-    const userInfo = useSelector((state) => state.user.userInfo);
     
-    console.log(userInfo);
     
+   
+    const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
+    console.log(userInfo.email);
     useEffect(() => {
         fetchComplaints();
     },[]);
@@ -56,11 +57,11 @@ const ComplaintHistory = () => {
                             </thead>
 
                             <tbody>
-                                {!zeroComplaints && history.filter((val) => val.email === userInfo.email).map((val, index) => {
+                                {!zeroComplaints && history.filter((val)=>userInfo.email===val.email).map((val, index) => {
                                     console.log(val);
                                     return (
                                         (<tr className='table-item' key={index}>
-                                            <td className='col-xs-6'>{val.description.trimEnd()}</td>
+                                            <td className='col-xs-6'>{val.description}</td>
                                             
                                             <td className={`c-type ${val.wasteType === 'dry' ? 'brown-text' : val.wasteType === 'wet' ? 'blue-text' : ''}`}>{val.wasteType}</td>
                                             <td>{val.pickupDate !== null ? val.pickupDate.substring(0, 10) : ""}</td>

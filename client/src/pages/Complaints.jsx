@@ -4,7 +4,7 @@ import React, {useState} from 'react';
 
 import axios from 'axios';
 import CustomNavbar from './Navbar';
-import { useSelector } from 'react-redux';
+
 import { useNavigate } from 'react-router-dom';
 export const getAccessToken = ()=>{
     return sessionStorage.getItem('accesstoken');
@@ -15,8 +15,8 @@ const Complaints = () => {
     
    
     const navigate = useNavigate();
-    
-    const userInfo = useSelector((state) => state.user.userInfo);
+    const  userInfo = sessionStorage.getItem('userInfo');
+   
     const [inputValue, setInputValue] = useState({
         
         email:userInfo.email,
@@ -40,7 +40,7 @@ const Complaints = () => {
         e.preventDefault();
         try {
            
-             console.log("hello");
+             
             const { data } = await axios.post('https://swachh-backend.onrender.com/request/',
                 {
                     ...inputValue

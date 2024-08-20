@@ -11,7 +11,7 @@ const userSlice = createSlice({
   initialState,
   reducers: {
     login: (state, action) => {
-      
+      console.log("Payload received by reducer:", action.payload); 
         state.userInfo = action.payload; // action.payload should contain the user data
         state.isAuthenticated = true;
      

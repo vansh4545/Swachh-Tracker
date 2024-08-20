@@ -37,8 +37,7 @@ const Signup = () => {
         "https://swachh-backend.onrender.com/signup",
         {
           ...inputValue,
-        },
-        { withCredentials: true }
+        }
       );
       const { success, message } = data;
       if (success) {
