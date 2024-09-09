@@ -42,13 +42,13 @@ function App() {
         
     <div className="App">
       <Routes>
-      <Route path="/login" element={<Login isUserAuthenticated={isUserAuthenticated}/>} />
+      <Route path="/" element={<Login isUserAuthenticated={isUserAuthenticated}/>} />
       <Route path='/adminlogin' element={<AdminLogin  isAdminUser={isAdminUser} />} />
         
       
-      <Route path='/' element={<PrivateRoute getAccessToken={getAccessToken}/>} >
-          <Route path='/' element={<Home isAdmin = {isAdmin}/>}/>
-        </Route>
+    
+          <Route path='/home' element={<Home isAdmin = {isAdmin}/>}/>
+       
           
 
        

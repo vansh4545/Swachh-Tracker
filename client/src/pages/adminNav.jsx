@@ -13,7 +13,7 @@ const adminNavbar = ({ onLogout }) => {
                 
                 <Nav className="ms-auto">
                 <ThemeToggle/>
-                    <Nav.Link href="/login" onClick={onLogout}>Logout</Nav.Link> {/* Call the onLogout function */}
+                    <Nav.Link href="/" onClick={onLogout}>Logout</Nav.Link> {/* Call the onLogout function */}
                 </Nav>
 
             </Container>

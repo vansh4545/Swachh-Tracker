@@ -7,8 +7,8 @@ import { ToastContainer, toast } from "react-toastify";
 const AdminLogin = ({isAdminUser}) => {
   const navigate = useNavigate();
   const [inputValue, setInputValue] = useState({
-    email: "",
-    password: "",
+    email: "admin@gmail.com",
+    password: "admin1234",
   });
   const { email, password } = inputValue;
  
@@ -41,7 +41,7 @@ const AdminLogin = ({isAdminUser}) => {
       if (success) {
         
         alert("Admin Logged in successfully")
-        navigate("/");
+        navigate("/home");
       } else {
         alert(message)
         

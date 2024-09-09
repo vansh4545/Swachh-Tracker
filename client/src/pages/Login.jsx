@@ -12,8 +12,8 @@ const Login = ({isUserAuthenticated}) => {
  
   
   const [inputValue, setInputValue] = useState({
-    email: "",
-    password: "",
+    email: "test@gmail.com",
+    password: "test1234",
   });
   const { email, password } = inputValue;
  
@@ -56,7 +56,7 @@ const Login = ({isUserAuthenticated}) => {
         isUserAuthenticated(true);
         
         alert(message)
-        navigate("/");
+        navigate("/home");
       } else {
         alert(message)
         //handleError(message);

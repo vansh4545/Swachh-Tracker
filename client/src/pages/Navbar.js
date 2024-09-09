@@ -25,10 +25,10 @@ const CustomNavbar = ({ onLogout }) => {
                 />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link href="/#home">
+                        <Nav.Link href="/home">
                             Home
                         </Nav.Link>
-                        <Nav.Link href="/#about">
+                        <Nav.Link href="/home">
                             About
                         </Nav.Link>
                         <NavDropdown title="Garbage Pickup" id="collapsible-nav-dropdown">
@@ -43,10 +43,10 @@ const CustomNavbar = ({ onLogout }) => {
                         {getAccessToken ? (
         <>
           
-          <Nav.Link href="/login" onClick={onLogout}>Logout</Nav.Link>
+          <Nav.Link href="/" onClick={onLogout}>Logout</Nav.Link>
         </>
       ) : (
-        <Nav.Link href="/login">Login</Nav.Link>
+        <Nav.Link href="/">Login</Nav.Link>
       )}
                     </Nav>
                 </Navbar.Collapse>
