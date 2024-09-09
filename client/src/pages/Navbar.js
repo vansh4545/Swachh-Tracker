@@ -39,7 +39,7 @@ const CustomNavbar = ({ onLogout }) => {
                     </Nav>
                     <Nav>
                     <ThemeToggle/>
-                        <Nav.Link href="/#contact">Contact Us</Nav.Link>
+                        <Nav.Link href="/home">Contact Us</Nav.Link>
                         {getAccessToken ? (
         <>
           
