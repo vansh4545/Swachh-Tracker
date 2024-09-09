@@ -2,6 +2,7 @@ import './complaintHistory.css';
 import axios from 'axios';
 import React, { useEffect, useState} from 'react';
 import CustomNavbar from './Navbar';
+import { getAccessToken } from '../utils/common-utils';
 
 
 const ComplaintHistory = () => {
@@ -11,8 +12,9 @@ const ComplaintHistory = () => {
     
     
    
-    const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
-    console.log(userInfo.email);
+     const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
+    // console.log(userInfo.email);
+
     useEffect(() => {
         fetchComplaints();
     },[]);

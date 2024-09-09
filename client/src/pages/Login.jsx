@@ -52,6 +52,7 @@ const Login = ({isUserAuthenticated}) => {
       // console.log(userInfo);
       if (success) {
         sessionStorage.setItem('userInfo', JSON.stringify(user));
+        sessionStorage.setItem('accesstoken', `Bearer ${data.accesstoken}`);
         isUserAuthenticated(true);
         
         alert(message)

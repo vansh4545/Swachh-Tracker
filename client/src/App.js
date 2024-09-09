@@ -5,9 +5,9 @@ import Home from "./pages/Home";
 import Complaints from "./pages/Complaints";
 import ComplaintHistory from "./pages/ComplaintHistory.jsx";
 import AllRequests from "./pages/AllRequests.jsx";
-
-const PrivateRoute =({isAuthenticated,...props})=>{
-  return isAuthenticated ?
+import { getAccessToken } from "./utils/common-utils.js";
+const PrivateRoute =({getAccessToken,...props})=>{
+  return getAccessToken!=null ?
   <>
    <Outlet/>
   </>
@@ -46,8 +46,10 @@ function App() {
       <Route path='/adminlogin' element={<AdminLogin  isAdminUser={isAdminUser} />} />
         
       
-          <Route path='/' element={<Home isAdmin= {isAdmin}/>}/>
-       
+      <Route path='/' element={<PrivateRoute getAccessToken={getAccessToken}/>} >
+          <Route path='/' element={<Home isAdmin = {isAdmin}/>}/>
+        </Route>
+          
 
        
 

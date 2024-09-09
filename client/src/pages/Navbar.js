@@ -6,6 +6,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link } from 'react-router-dom';
+import { getAccessToken } from '../utils/common-utils';
 import ThemeToggle from '../themetoggle'; // Import custom theme toggle component
 
 const CustomNavbar = ({ onLogout }) => {
@@ -39,7 +40,7 @@ const CustomNavbar = ({ onLogout }) => {
                     <Nav>
                     <ThemeToggle/>
                         <Nav.Link href="/#contact">Contact Us</Nav.Link>
-                        {userInfo ? (
+                        {getAccessToken ? (
         <>
           
           <Nav.Link href="/login" onClick={onLogout}>Logout</Nav.Link>
