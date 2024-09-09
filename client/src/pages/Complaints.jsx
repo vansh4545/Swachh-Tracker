@@ -95,8 +95,8 @@ const Complaints = () => {
                         </select>
                     </div>
 
-                    <div className='input-group' style={{ display: 'flex', flexDirection: 'column' }}>
-                        <label htmlFor="pickupDate" id="lab">Pickup Date:</label>
+                    <div className='input-group' style={{ display: 'flex' }}>
+                        <label for="pickupDate" id="lab">Pickup Date</label>
                         <input type="date" id="pickupDate" className='input-field' name="pickupDate" value={pickupDate} onChange={handleOnChange} />
                     </div>
 

@@ -24,7 +24,7 @@ form {
   /* Ensure input fields take full width */
   padding: 10px;
   /* Add padding for spacing */
-  border-radius: 5px;
+  border-radius: 7px;
   /* Add border radius for rounded corners */
   border: 1px solid #ccc;
   /* Add border for visual clarity */
@@ -62,7 +62,11 @@ p {
   transition: background-color 0.3s;
   /* Add transition for smooth hover effect */
 }
-
+#lab{
+   padding: 5px;
+   border-radius: 4px;
+   
+}
 .btn:hover {
   background-color: #45a049;
   /* Darker green background color on hover */
