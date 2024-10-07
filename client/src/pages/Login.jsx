@@ -97,7 +97,7 @@ const Login = ({isUserAuthenticated}) => {
         </div>
         <button type="submit">User login</button>
         <span>
-          Already have an account? <Link to={"/signup"}>Signup</Link>
+          Don't have an account? <Link to={"/signup"}>Signup</Link>
         </span>
       </form>
       <Link className="lnk" to={"/adminlogin"}>Admin Login</Link>
